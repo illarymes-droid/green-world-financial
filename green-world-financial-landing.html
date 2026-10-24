@@ -4,506 +4,496 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Green World Financial helps families explore life insurance and legacy planning with clear, personal guidance.">
+    <meta property="og:title" content="Green World Financial | Protect Today. Build Tomorrow.">
+    <meta property="og:description" content="Protection rooted in family. Planning designed for the future.">
+    <meta property="og:image" content="https://illarymes-droid.github.io/green-world-financial/assets/family-guardian-hero.jpg">
+    <meta name="theme-color" content="#092d24">
     <title>Green World Financial | Protect Today. Build Tomorrow.</title>
     <style>
         :root {
-            --forest-950: #08251e;
-            --forest-900: #0c3027;
-            --forest-800: #17483b;
-            --forest-600: #2f6f5d;
-            --ivory: #f7f4ed;
-            --paper: #fffdf8;
-            --ink: #15211d;
-            --muted: #64716c;
-            --gold: #c7a163;
-            --gold-soft: #eadfc9;
-            --line: rgba(21, 33, 29, 0.12);
-            --shadow: 0 28px 70px rgba(8, 37, 30, 0.11);
-            --radius-lg: 28px;
-            --radius-md: 18px;
+            --forest-950: #07271f;
+            --forest-900: #0a3328;
+            --forest-800: #124a3b;
+            --forest-700: #1d604e;
+            --forest-100: #dce9df;
+            --paper: #fbf8ef;
+            --paper-2: #f2eddf;
+            --ink: #12231d;
+            --muted: #65736d;
+            --gold: #d0a75e;
+            --gold-pale: #eee0c2;
+            --white: #fffef9;
+            --line: rgba(18, 35, 29, 0.13);
+            --radius: 24px;
+            --shadow: 0 30px 80px rgba(7, 39, 31, 0.14);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
             overflow-x: hidden;
-            color: var(--ink);
             background: var(--paper);
+            color: var(--ink);
             font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
         }
+        body.menu-open { overflow: hidden; }
         a { color: inherit; }
         button, input, select, textarea { font: inherit; }
+        img { display: block; max-width: 100%; }
         .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+        .skip-link {
+            position: fixed; z-index: 1000; top: 12px; left: 12px; transform: translateY(-150%);
+            padding: 10px 16px; border-radius: 8px; background: white; color: var(--ink);
+        }
+        .skip-link:focus { transform: translateY(0); }
         .eyebrow {
             display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px;
-            color: var(--forest-600); font-size: 0.76rem; font-weight: 750;
-            letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--forest-700); font-size: .74rem; font-weight: 800;
+            letter-spacing: .16em; text-transform: uppercase;
         }
-        .eyebrow::before { width: 28px; height: 1px; content: ""; background: currentColor; }
-        h1, h2, h3 {
-            font-family: Georgia, "Times New Roman", serif; font-weight: 500;
-            line-height: 1.08; letter-spacing: -0.035em;
+        .eyebrow::before { width: 26px; height: 1px; content: ""; background: currentColor; }
+        h1, h2, h3, .serif {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 500; line-height: 1.06; letter-spacing: -.035em;
         }
-        h2 { font-size: clamp(2.15rem, 4.4vw, 4rem); }
+        h2 { font-size: clamp(2.5rem, 5vw, 4.7rem); }
         .button {
             display: inline-flex; min-height: 52px; align-items: center; justify-content: center;
-            gap: 10px; padding: 0 22px; border: 1px solid transparent; border-radius: 999px;
-            background: var(--gold); color: var(--forest-950); cursor: pointer; font-size: 0.9rem;
-            font-weight: 750; letter-spacing: 0.01em; text-decoration: none;
+            gap: 10px; padding: 0 24px; border: 1px solid transparent; border-radius: 999px;
+            background: var(--gold); color: var(--forest-950); cursor: pointer;
+            font-size: .88rem; font-weight: 800; text-decoration: none;
             transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
         }
-        .button:hover { transform: translateY(-2px); background: #d4b277; box-shadow: 0 14px 28px rgba(199, 161, 99, 0.22); }
-        .button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-            outline: 3px solid rgba(199, 161, 99, 0.48); outline-offset: 3px;
-        }
-        .button--ghost { border-color: rgba(255, 255, 255, 0.22); background: transparent; color: white; }
-        .button--ghost:hover { background: rgba(255, 255, 255, 0.08); box-shadow: none; }
+        .button:hover { transform: translateY(-2px); background: #dfba75; box-shadow: 0 14px 32px rgba(208, 167, 94, .24); }
+        .button--outline { border-color: rgba(255, 255, 255, .32); background: transparent; color: white; }
+        .button--outline:hover { background: rgba(255, 255, 255, .1); box-shadow: none; }
+        :focus-visible { outline: 3px solid rgba(208, 167, 94, .65); outline-offset: 3px; }
 
+        /* Header */
         .site-header {
-            position: absolute; z-index: 10; top: 0; right: 0; left: 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12); color: white;
+            position: fixed; z-index: 100; top: 0; right: 0; left: 0;
+            color: white; transition: background 220ms ease, box-shadow 220ms ease;
         }
+        .site-header::after {
+            position: absolute; right: 0; bottom: 0; left: 0; height: 1px;
+            content: ""; background: rgba(255, 255, 255, .15);
+        }
+        .site-header.scrolled { background: rgba(7, 39, 31, .94); box-shadow: 0 12px 38px rgba(0, 0, 0, .16); backdrop-filter: blur(14px); }
         .nav { display: flex; min-height: 82px; align-items: center; justify-content: space-between; gap: 28px; }
         .brand {
-            display: inline-flex; align-items: center; gap: 12px; color: white;
-            font-family: Georgia, "Times New Roman", serif; font-size: 1.18rem;
-            letter-spacing: -0.02em; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 12px;
+            color: white; text-decoration: none;
         }
         .brand-mark {
-            display: grid; width: 38px; height: 38px; place-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 50%; color: var(--gold);
+            display: grid; width: 44px; height: 44px; flex: 0 0 44px; place-items: center;
+            border: 1px solid rgba(255, 255, 255, .4); border-radius: 50%; color: var(--gold);
         }
-        .brand-mark svg { width: 22px; height: 22px; }
-        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.78); font-size: 0.88rem;
-            font-weight: 650; text-decoration: none; transition: color 180ms ease;
-        }
+        .brand-mark svg { width: 29px; height: 29px; }
+        .brand-copy { display: grid; line-height: 1; }
+        .brand-copy strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.06rem; font-weight: 500; letter-spacing: -.02em; }
+        .brand-copy small { margin-top: 5px; color: rgba(255, 255, 255, .58); font-size: .56rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+        .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-links a { color: rgba(255, 255, 255, .78); font-size: .84rem; font-weight: 700; text-decoration: none; }
         .nav-links a:hover { color: white; }
         .nav .button { min-height: 44px; padding-inline: 18px; }
+        .menu-toggle {
+            display: none; width: 44px; height: 44px; border: 1px solid rgba(255, 255, 255, .32);
+            border-radius: 50%; background: transparent; color: white; cursor: pointer;
+        }
+        .menu-toggle span, .menu-toggle::before, .menu-toggle::after {
+            display: block; width: 18px; height: 1px; margin: 4px auto; content: ""; background: currentColor;
+        }
 
+        /* Hero */
         .hero {
-            position: relative; overflow: hidden; min-height: 760px; padding: 172px 0 106px;
-            background: radial-gradient(circle at 85% 18%, rgba(199, 161, 99, 0.16), transparent 26%),
-                        linear-gradient(135deg, var(--forest-950), var(--forest-800));
-            color: white;
+            position: relative; display: flex; overflow: hidden; min-height: 830px; align-items: center;
+            padding: 154px 0 146px; background: var(--forest-950); color: white;
         }
-        .hero::before {
-            position: absolute; inset: 0; content: ""; opacity: 0.22;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-            background-size: 64px 64px; mask-image: linear-gradient(to right, transparent 4%, black 58%, transparent);
+        .hero-media, .hero-shade { position: absolute; inset: 0; }
+        .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .hero-shade {
+            background:
+                linear-gradient(90deg, rgba(4, 27, 21, .98) 0%, rgba(5, 34, 26, .86) 35%, rgba(6, 33, 26, .22) 68%, rgba(5, 25, 20, .08) 100%),
+                linear-gradient(0deg, rgba(4, 25, 19, .66) 0%, transparent 42%);
         }
-        .hero-grid {
-            position: relative; z-index: 1; display: grid; align-items: center;
-            grid-template-columns: minmax(0, 1.12fr) minmax(380px, 0.88fr); gap: 78px;
-        }
-        .hero .eyebrow { color: var(--gold-soft); }
-        .hero h1 { max-width: 760px; margin-bottom: 26px; font-size: clamp(3.5rem, 7vw, 6.8rem); }
+        .hero-content { position: relative; z-index: 2; max-width: 720px; }
+        .hero .eyebrow { color: var(--gold-pale); }
+        .hero h1 { margin-bottom: 26px; font-size: clamp(3.9rem, 7.4vw, 7.6rem); }
         .hero h1 em { color: var(--gold); font-weight: inherit; }
-        .hero-copy > p {
-            max-width: 610px; margin-bottom: 34px; color: rgba(255, 255, 255, 0.73);
-            font-size: clamp(1rem, 1.6vw, 1.18rem);
-        }
+        .hero-copy { max-width: 590px; margin-bottom: 34px; color: rgba(255, 255, 255, .77); font-size: 1.08rem; }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-        .hero-visual { position: relative; display: grid; min-height: 470px; place-items: center; }
-        .legacy-orbit {
-            position: absolute; width: min(43vw, 455px); aspect-ratio: 1;
-            border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 50%;
+        .hero-seal {
+            position: absolute; z-index: 3; right: max(30px, calc((100vw - 1180px) / 2)); bottom: 54px;
+            display: grid; width: 168px; height: 168px; place-items: center;
+            border: 1px solid rgba(255, 255, 255, .34); border-radius: 50%;
+            background: rgba(7, 39, 31, .56); color: var(--gold-pale); backdrop-filter: blur(10px);
         }
-        .legacy-orbit::before, .legacy-orbit::after {
-            position: absolute; border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: inherit; content: "";
+        .hero-seal::before { position: absolute; inset: 9px; border: 1px solid rgba(255, 255, 255, .14); border-radius: 50%; content: ""; }
+        .hero-seal svg { width: 58px; height: 58px; color: var(--gold); }
+        .hero-seal span { position: absolute; bottom: 28px; font-size: .58rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+
+        .principles { position: relative; z-index: 4; margin-top: -42px; }
+        .principles-grid {
+            display: grid; overflow: hidden; border-radius: 18px; background: var(--white);
+            box-shadow: var(--shadow); grid-template-columns: repeat(3, 1fr);
         }
-        .legacy-orbit::before { inset: 12%; }
-        .legacy-orbit::after { inset: 27%; border-color: rgba(199, 161, 99, 0.48); }
-        .legacy-card {
-            position: relative; z-index: 2; width: min(100%, 330px); padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.16); border-radius: var(--radius-lg);
-            background: rgba(255, 255, 255, 0.09); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
-            backdrop-filter: blur(14px);
+        .principle { display: grid; min-height: 136px; align-content: center; padding: 28px 32px; border-right: 1px solid var(--line); grid-template-columns: 38px 1fr; gap: 14px; }
+        .principle:last-child { border-right: 0; }
+        .principle-number { color: var(--gold); font-family: Georgia, serif; font-size: 1.1rem; }
+        .principle strong { display: block; margin-bottom: 4px; color: var(--forest-900); font-size: .92rem; }
+        .principle p { color: var(--muted); font-size: .82rem; line-height: 1.5; }
+
+        /* Mission */
+        .mission { padding: 146px 0 122px; }
+        .mission-grid { display: grid; align-items: start; grid-template-columns: .92fr 1.08fr; gap: 92px; }
+        .mission h2 { max-width: 570px; }
+        .mission-copy { padding-top: 40px; }
+        .mission-copy > p { max-width: 590px; margin-bottom: 34px; color: var(--muted); font-size: 1.03rem; }
+        .mission-quote {
+            display: grid; padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+            grid-template-columns: 60px 1fr; gap: 18px;
         }
-        .legacy-card__label {
-            display: flex; align-items: center; justify-content: space-between; margin-bottom: 34px;
-            color: rgba(255, 255, 255, 0.6); font-size: 0.72rem; font-weight: 750;
-            letter-spacing: 0.12em; text-transform: uppercase;
+        .mission-quote svg { width: 44px; height: 44px; color: var(--forest-700); }
+        .mission-quote p { color: var(--forest-900); font-family: Georgia, serif; font-size: 1.35rem; line-height: 1.45; }
+
+        /* Solutions */
+        .solutions { padding: 118px 0; background: var(--paper-2); }
+        .section-heading { display: grid; align-items: end; margin-bottom: 56px; grid-template-columns: 1fr .66fr; gap: 48px; }
+        .section-heading p { max-width: 480px; justify-self: end; color: var(--muted); }
+        .solution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .solution-card {
+            position: relative; overflow: hidden; min-height: 390px; padding: 34px;
+            border: 1px solid var(--line); border-radius: var(--radius); background: var(--white);
+            transition: transform 220ms ease, box-shadow 220ms ease;
         }
-        .legacy-card__seal {
-            width: 12px; height: 12px; border-radius: 50%; background: var(--gold);
-            box-shadow: 0 0 0 6px rgba(199, 161, 99, 0.16);
+        .solution-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+        .solution-icon {
+            display: grid; width: 58px; height: 58px; margin-bottom: 88px; place-items: center;
+            border-radius: 50%; background: var(--forest-100); color: var(--forest-800);
         }
-        .legacy-card h2 { margin-bottom: 12px; font-size: 2.3rem; }
-        .legacy-card > p { color: rgba(255, 255, 255, 0.66); font-size: 0.92rem; }
-        .legacy-lines { display: grid; margin-top: 30px; gap: 12px; }
-        .legacy-line {
-            display: flex; align-items: center; gap: 12px; padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            color: rgba(255, 255, 255, 0.82); font-size: 0.82rem;
-        }
-        .legacy-line span:first-child { color: var(--gold); }
-        .hero-note {
-            position: absolute; z-index: 3; right: -18px; bottom: 34px; max-width: 185px;
-            padding: 16px 18px; border-radius: 14px; background: var(--ivory); color: var(--ink);
-            box-shadow: var(--shadow); font-family: Georgia, "Times New Roman", serif;
-            font-size: 0.95rem; line-height: 1.35;
+        .solution-icon svg { width: 27px; height: 27px; }
+        .solution-card h3 { margin-bottom: 14px; font-size: 1.75rem; }
+        .solution-card p { position: relative; z-index: 1; color: var(--muted); font-size: .91rem; }
+        .solution-card::after {
+            position: absolute; right: -64px; bottom: -70px; width: 180px; height: 180px;
+            border: 1px solid var(--gold-pale); border-radius: 50%; content: "";
+            box-shadow: inset 0 0 0 30px var(--white), inset 0 0 0 31px var(--gold-pale);
         }
 
-        .intro { padding: 34px 0; border-bottom: 1px solid var(--line); background: var(--ivory); }
-        .intro-grid { display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 24px; }
-        .intro-lead {
-            color: var(--forest-800); font-family: Georgia, "Times New Roman", serif;
-            font-size: 1.2rem; line-height: 1.35;
+        /* Journey */
+        .journey { padding: 132px 0; }
+        .journey-intro { max-width: 760px; margin-bottom: 78px; }
+        .journey-intro h2 { margin-bottom: 22px; }
+        .journey-intro p { max-width: 600px; color: var(--muted); }
+        .journey-track { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 42px; }
+        .journey-track::before { position: absolute; top: 19px; right: 12%; left: 12%; height: 1px; content: ""; background: var(--line); }
+        .journey-step { position: relative; padding-top: 62px; }
+        .journey-dot {
+            position: absolute; z-index: 1; top: 7px; left: 0; width: 25px; height: 25px;
+            border: 7px solid var(--paper); border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 1px var(--gold);
         }
-        .intro-item { padding-left: 24px; border-left: 1px solid var(--line); }
-        .intro-item strong { display: block; margin-bottom: 3px; color: var(--forest-900); font-size: 0.9rem; }
-        .intro-item span { color: var(--muted); font-size: 0.83rem; }
+        .journey-step span { color: var(--forest-700); font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+        .journey-step h3 { margin: 12px 0; font-size: 1.72rem; }
+        .journey-step p { color: var(--muted); font-size: .88rem; }
 
-        .services { padding: 120px 0; background: var(--paper); }
-        .section-heading {
-            display: grid; align-items: end; margin-bottom: 58px;
-            grid-template-columns: 1.05fr 0.7fr; gap: 40px;
+        /* Legacy */
+        .legacy { position: relative; overflow: hidden; padding: 132px 0; background: var(--forest-950); color: white; }
+        .legacy::before {
+            position: absolute; right: -180px; top: -210px; width: 620px; height: 620px;
+            border: 1px solid rgba(255, 255, 255, .08); border-radius: 50%; content: "";
+            box-shadow: inset 0 0 0 90px var(--forest-950), inset 0 0 0 91px rgba(255, 255, 255, .06);
         }
-        .section-heading p { max-width: 500px; justify-self: end; color: var(--muted); font-size: 1rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-        .service-card {
-            position: relative; overflow: hidden; min-height: 340px; padding: 34px;
-            border: 1px solid var(--line); border-radius: var(--radius-md); background: white;
-            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        .legacy-grid { position: relative; z-index: 1; display: grid; align-items: center; grid-template-columns: 1.08fr .92fr; gap: 90px; }
+        .legacy .eyebrow { color: var(--gold-pale); }
+        .legacy h2 { max-width: 680px; margin-bottom: 25px; }
+        .legacy-copy > p { max-width: 580px; margin-bottom: 36px; color: rgba(255, 255, 255, .66); }
+        .legacy-visual { position: relative; display: grid; min-height: 480px; place-items: center; }
+        .orbit { position: absolute; width: 430px; aspect-ratio: 1; border: 1px solid rgba(255, 255, 255, .15); border-radius: 50%; }
+        .orbit::before, .orbit::after { position: absolute; border-radius: inherit; content: ""; }
+        .orbit::before { inset: 15%; border: 1px solid rgba(255, 255, 255, .1); }
+        .orbit::after { inset: 31%; border: 1px solid rgba(208, 167, 94, .55); }
+        .legacy-emblem {
+            position: relative; z-index: 1; display: grid; width: 190px; height: 190px;
+            place-items: center; border-radius: 50%; background: var(--gold); color: var(--forest-950);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, .28);
         }
-        .service-card:hover {
-            transform: translateY(-6px); border-color: rgba(47, 111, 93, 0.28); box-shadow: var(--shadow);
+        .legacy-emblem svg { width: 96px; height: 96px; }
+        .orbit-label {
+            position: absolute; z-index: 2; padding: 11px 16px; border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 999px; background: rgba(255, 255, 255, .08); color: rgba(255, 255, 255, .78);
+            font-size: .71rem; font-weight: 750; letter-spacing: .04em; backdrop-filter: blur(10px);
         }
-        .service-number {
-            display: inline-grid; width: 50px; height: 50px; margin-bottom: 68px; place-items: center;
-            border-radius: 50%; background: var(--ivory); color: var(--forest-600);
-            font-family: Georgia, "Times New Roman", serif;
-        }
-        .service-card h3 { margin-bottom: 14px; font-size: 1.72rem; }
-        .service-card p { color: var(--muted); font-size: 0.92rem; }
-        .service-card::after {
-            position: absolute; right: -36px; bottom: -52px; width: 150px; height: 150px;
-            border: 1px solid var(--gold-soft); border-radius: 50%; content: "";
-            box-shadow: inset 0 0 0 24px white, inset 0 0 0 25px var(--gold-soft);
-        }
+        .orbit-label--one { top: 46px; left: 26px; }
+        .orbit-label--two { right: 10px; top: 190px; }
+        .orbit-label--three { bottom: 42px; left: 42px; }
 
-        .guidance { padding: 120px 0; background: var(--ivory); }
-        .guidance-grid {
-            display: grid; align-items: center; grid-template-columns: 0.9fr 1.1fr; gap: 82px;
+        /* Contact */
+        .contact { padding: 124px 0; background: var(--paper-2); }
+        .contact-shell { display: grid; overflow: hidden; border-radius: 30px; background: var(--white); box-shadow: var(--shadow); grid-template-columns: .82fr 1.18fr; }
+        .contact-intro { position: relative; overflow: hidden; padding: 62px 54px; background: var(--forest-800); color: white; }
+        .contact-intro::after {
+            position: absolute; right: -120px; bottom: -160px; width: 360px; height: 360px;
+            border: 1px solid rgba(255, 255, 255, .16); border-radius: 50%; content: "";
+            box-shadow: inset 0 0 0 58px transparent, inset 0 0 0 59px rgba(255, 255, 255, .08);
         }
-        .guidance-visual {
-            position: relative; min-height: 540px; padding: 50px;
-            border-radius: var(--radius-lg); background: var(--forest-900); color: white;
-        }
-        .guidance-visual::before {
-            position: absolute; inset: 26px; border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 20px; content: "";
-        }
-        .guidance-quote {
-            position: relative; z-index: 1; max-width: 350px; font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(2rem, 3.4vw, 3.2rem); line-height: 1.12;
-        }
-        .guidance-quote span { color: var(--gold); }
-        .guidance-path {
-            position: absolute; z-index: 1; right: 50px; bottom: 50px; left: 50px;
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-        }
-        .guidance-step {
-            padding-top: 14px; border-top: 2px solid rgba(255, 255, 255, 0.16);
-            color: rgba(255, 255, 255, 0.62); font-size: 0.72rem;
-            letter-spacing: 0.06em; text-transform: uppercase;
-        }
-        .guidance-step:first-child { border-color: var(--gold); color: white; }
-        .guidance-copy h2 { max-width: 620px; margin-bottom: 24px; }
-        .guidance-copy > p { max-width: 580px; margin-bottom: 36px; color: var(--muted); }
-        .benefit-list { display: grid; margin-bottom: 38px; gap: 0; list-style: none; }
-        .benefit-list li {
-            display: grid; padding: 17px 0; border-top: 1px solid var(--line);
-            grid-template-columns: 36px 1fr; gap: 12px;
-        }
-        .benefit-list li:last-child { border-bottom: 1px solid var(--line); }
-        .benefit-list strong { display: block; margin-bottom: 2px; color: var(--forest-900); font-size: 0.92rem; }
-        .benefit-list p { color: var(--muted); font-size: 0.84rem; }
-        .check {
-            display: grid; width: 25px; height: 25px; margin-top: 1px; place-items: center;
-            border-radius: 50%; background: var(--gold-soft); color: var(--forest-900);
-            font-size: 0.78rem; font-weight: 800;
-        }
-
-        .contact { padding: 120px 0; background: var(--paper); }
-        .contact-shell {
-            display: grid; overflow: hidden; border-radius: var(--radius-lg); background: var(--forest-950);
-            color: white; box-shadow: var(--shadow); grid-template-columns: 0.85fr 1.15fr;
-        }
-        .contact-copy {
-            position: relative; overflow: hidden; padding: 64px 58px; background: var(--forest-800);
-        }
-        .contact-copy::after {
-            position: absolute; right: -140px; bottom: -180px; width: 390px; height: 390px;
-            border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 50%; content: "";
-            box-shadow: inset 0 0 0 60px transparent, inset 0 0 0 61px rgba(255, 255, 255, 0.08);
-        }
-        .contact-copy .eyebrow { color: var(--gold-soft); }
-        .contact-copy h2 { margin-bottom: 24px; font-size: clamp(2.45rem, 4vw, 4.2rem); }
-        .contact-copy > p {
-            position: relative; z-index: 1; max-width: 420px; color: rgba(255, 255, 255, 0.68);
-        }
-        .contact-form {
-            display: grid; padding: 58px; gap: 22px; grid-template-columns: repeat(2, 1fr);
-        }
+        .contact-intro .eyebrow { color: var(--gold-pale); }
+        .contact-intro h2 { position: relative; z-index: 1; margin-bottom: 22px; font-size: clamp(2.7rem, 4.6vw, 4.6rem); }
+        .contact-intro p { position: relative; z-index: 1; color: rgba(255, 255, 255, .67); }
+        .contact-form { display: grid; padding: 54px; gap: 20px; grid-template-columns: repeat(2, 1fr); }
         .form-group { display: grid; gap: 7px; }
-        .form-group--wide, .form-footer, .form-status { grid-column: 1 / -1; }
-        .form-group label {
-            color: rgba(255, 255, 255, 0.7); font-size: 0.75rem; font-weight: 700;
-            letter-spacing: 0.06em; text-transform: uppercase;
+        .form-wide, .form-footer, .form-status { grid-column: 1 / -1; }
+        label { color: var(--forest-800); font-size: .7rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+        input, select, textarea {
+            width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--ink); outline: none;
         }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 10px;
-            outline: none; background: rgba(255, 255, 255, 0.07); color: white;
-        }
-        .form-group input, .form-group select { height: 52px; padding: 0 15px; }
-        .form-group textarea { min-height: 112px; padding: 14px 15px; resize: vertical; }
-        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255, 255, 255, 0.38); }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: var(--gold); background: rgba(255, 255, 255, 0.1);
-        }
-        .form-group select option { color: var(--ink); }
+        input, select { height: 52px; padding: 0 15px; }
+        textarea { min-height: 110px; padding: 14px 15px; resize: vertical; }
+        input:focus, select:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(208, 167, 94, .13); }
         .form-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-        .form-footer p {
-            max-width: 290px; color: rgba(255, 255, 255, 0.43); font-size: 0.74rem; line-height: 1.45;
-        }
-        .form-status {
-            display: none; padding: 12px 14px; border: 1px solid rgba(199, 161, 99, 0.3);
-            border-radius: 10px; background: rgba(199, 161, 99, 0.12); color: var(--gold-soft);
-            font-size: 0.86rem;
-        }
+        .form-footer p { max-width: 300px; color: var(--muted); font-size: .72rem; }
+        .form-status { display: none; padding: 12px 14px; border-radius: 9px; background: var(--forest-100); color: var(--forest-900); font-size: .84rem; }
 
-        footer { padding: 52px 0 28px; border-top: 1px solid var(--line); background: var(--ivory); }
-        .footer-main {
-            display: grid; align-items: start; padding-bottom: 40px;
-            grid-template-columns: 1.3fr 0.7fr 0.7fr; gap: 56px;
-        }
+        /* Footer */
+        footer { padding: 52px 0 28px; background: var(--paper); }
+        .footer-main { display: grid; padding-bottom: 42px; grid-template-columns: 1.3fr .7fr .7fr; gap: 54px; }
         footer .brand { margin-bottom: 16px; color: var(--forest-950); }
-        footer .brand-mark { border-color: rgba(8, 37, 30, 0.25); color: var(--forest-600); }
-        .footer-about p { max-width: 370px; color: var(--muted); font-size: 0.86rem; }
-        .footer-column h3 {
-            margin-bottom: 16px; font-family: inherit; font-size: 0.76rem; font-weight: 800;
-            letter-spacing: 0.1em; text-transform: uppercase;
-        }
-        .footer-column ul { display: grid; gap: 10px; list-style: none; }
-        .footer-column a { color: var(--muted); font-size: 0.86rem; text-decoration: none; }
-        .footer-column a:hover { color: var(--forest-600); }
-        .footer-bottom {
-            display: flex; align-items: center; justify-content: space-between; gap: 20px;
-            padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.75rem;
-        }
+        footer .brand-mark { border-color: rgba(7, 39, 31, .22); color: var(--forest-700); }
+        footer .brand-copy small { color: var(--muted); }
+        .footer-about p { max-width: 390px; color: var(--muted); font-size: .84rem; }
+        .footer-column h3 { margin-bottom: 16px; font-family: inherit; font-size: .7rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+        .footer-column ul { display: grid; gap: 9px; list-style: none; }
+        .footer-column a { color: var(--muted); font-size: .84rem; text-decoration: none; }
+        .footer-column a:hover { color: var(--forest-700); }
+        .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; }
 
-        @media (max-width: 980px) {
-            .nav-links { display: none; }
-            .hero { min-height: auto; }
-            .hero-grid, .guidance-grid { grid-template-columns: 1fr; }
-            .hero-grid { gap: 48px; }
-            .hero-copy { text-align: center; }
-            .hero-copy > p { margin-inline: auto; }
-            .hero-actions { justify-content: center; }
-            .hero-visual { min-height: 430px; }
-            .legacy-orbit { width: 430px; }
-            .hero-note { right: calc(50% - 240px); }
-            .intro-grid { grid-template-columns: repeat(3, 1fr); }
-            .intro-lead { grid-column: 1 / -1; }
-            .intro-item:first-of-type { padding-left: 0; border-left: 0; }
-            .services-grid { grid-template-columns: 1fr; }
-            .service-card { min-height: 280px; }
-            .service-number { margin-bottom: 46px; }
-            .guidance-grid { gap: 56px; }
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity 600ms ease, transform 600ms ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        @media (max-width: 960px) {
+            .nav-links { gap: 18px; }
+            .hero { min-height: 760px; }
+            .hero-content { max-width: 640px; }
+            .hero-shade { background: linear-gradient(90deg, rgba(4, 27, 21, .98), rgba(5, 34, 26, .72) 66%, rgba(5, 25, 20, .14)), linear-gradient(0deg, rgba(4, 25, 19, .6), transparent 44%); }
+            .principles-grid { grid-template-columns: 1fr; }
+            .principle { min-height: 112px; border-right: 0; border-bottom: 1px solid var(--line); }
+            .principle:last-child { border-bottom: 0; }
+            .mission-grid, .legacy-grid { grid-template-columns: 1fr; gap: 56px; }
+            .mission-copy { padding-top: 0; }
+            .section-heading { grid-template-columns: 1fr; gap: 22px; }
+            .section-heading p { justify-self: start; }
+            .solution-grid { grid-template-columns: 1fr; }
+            .solution-card { min-height: 300px; }
+            .solution-icon { margin-bottom: 48px; }
+            .journey-track { gap: 24px; }
+            .legacy-visual { order: -1; }
             .contact-shell { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 680px) {
+        @media (max-width: 720px) {
             .container { width: min(100% - 28px, 1180px); }
-            .site-header .button { display: none; }
             .nav { min-height: 72px; }
-            .brand { font-size: 1.05rem; }
-            .hero { padding: 132px 0 76px; }
-            .hero .eyebrow {
-                max-width: 100%;
-                justify-content: center;
-                font-size: 0.66rem;
-                letter-spacing: 0.12em;
-                line-height: 1.5;
+            .nav > .button { display: none; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: fixed; z-index: 90; top: 72px; right: 0; left: 0; display: grid;
+                padding: 28px; background: var(--forest-950); opacity: 0; pointer-events: none;
+                transform: translateY(-12px); transition: opacity 180ms ease, transform 180ms ease;
             }
-            .hero h1 { font-size: clamp(2.8rem, 12.2vw, 3.3rem); }
+            .nav-links.open { opacity: 1; pointer-events: auto; transform: none; }
+            .nav-links a { display: block; padding: 9px 0; font-size: 1rem; }
+            .hero { min-height: 760px; align-items: flex-end; padding: 132px 0 98px; }
+            .hero-media img { object-position: 68% center; }
+            .hero-shade { background: linear-gradient(0deg, rgba(4, 27, 21, .98) 0%, rgba(5, 34, 26, .76) 58%, rgba(5, 25, 20, .18) 100%); }
+            .hero-content { text-align: left; }
+            .hero h1 { font-size: clamp(3.35rem, 15vw, 5rem); }
+            .hero-copy { font-size: .98rem; }
             .hero-actions { align-items: stretch; flex-direction: column; }
             .hero-actions .button { width: 100%; }
-            .hero-visual { min-height: 390px; }
-            .legacy-orbit { width: 350px; }
-            .legacy-card { width: min(88%, 310px); padding: 25px; }
-            .hero-note { right: 0; bottom: 12px; max-width: 164px; }
-            .intro-grid { grid-template-columns: 1fr; }
-            .intro-item { padding: 16px 0 0; border-top: 1px solid var(--line); border-left: 0; }
-            .services, .guidance, .contact { padding: 84px 0; }
-            .section-heading { margin-bottom: 40px; grid-template-columns: 1fr; gap: 20px; }
-            .section-heading p { justify-self: start; }
-            .service-card { min-height: 300px; padding: 28px; }
-            .guidance-visual { min-height: 470px; padding: 34px; }
-            .guidance-visual::before { inset: 16px; }
-            .guidance-path { right: 34px; bottom: 34px; left: 34px; }
-            .guidance-copy h2 { font-size: 2.7rem; }
-            .contact-copy, .contact-form { padding: 36px 26px; }
+            .hero-seal { display: none; }
+            .principles { margin-top: -24px; }
+            .mission, .solutions, .journey, .legacy, .contact { padding: 88px 0; }
+            .mission-grid { gap: 38px; }
+            .mission-quote { grid-template-columns: 44px 1fr; }
+            .journey-track { grid-template-columns: 1fr; gap: 8px; }
+            .journey-track::before { top: 0; bottom: 0; left: 12px; width: 1px; height: auto; }
+            .journey-step { padding: 12px 0 38px 52px; }
+            .journey-dot { top: 16px; left: 0; }
+            .legacy-visual { min-height: 390px; }
+            .orbit { width: 340px; }
+            .legacy-emblem { width: 150px; height: 150px; }
+            .legacy-emblem svg { width: 76px; height: 76px; }
+            .orbit-label--one { top: 34px; left: 0; }
+            .orbit-label--two { right: -4px; top: 155px; }
+            .orbit-label--three { bottom: 28px; left: 10px; }
+            .contact-intro, .contact-form { padding: 36px 26px; }
             .contact-form { grid-template-columns: 1fr; }
-            .form-group, .form-group--wide, .form-footer, .form-status { grid-column: 1; }
+            .form-group, .form-wide, .form-footer, .form-status { grid-column: 1; }
             .form-footer { align-items: stretch; flex-direction: column; }
             .form-footer .button { width: 100%; }
-            .footer-main { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+            .footer-main { grid-template-columns: 1fr 1fr; gap: 34px 20px; }
             .footer-about { grid-column: 1 / -1; }
             .footer-bottom { align-items: flex-start; flex-direction: column; }
         }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-            *, *::before, *::after { transition-duration: 0.01ms !important; }
+            *, *::before, *::after { transition-duration: .01ms !important; }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
-    <header class="site-header">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="site-header">
         <nav class="container nav" aria-label="Main navigation">
             <a class="brand" href="#top" aria-label="Green World Financial home">
                 <span class="brand-mark" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                        <path d="M19.5 4.5C12 4.8 7.1 8.5 6.2 14.8c4.8.4 9.9-2.6 13.3-10.3Z"/>
-                        <path d="M5 20c1.2-5.4 4.8-8.6 10.4-10.8"/>
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="24" cy="24" r="21"/>
+                        <path d="M24 27V12m0 6c-5-6-10-5-13-4 2 7 7 10 13 9m0-5c5-6 10-5 13-4-2 7-7 10-13 9"/>
+                        <path d="M11 31c6-5 20-5 26 0M14 35c5 4 15 6 20 0"/>
                     </svg>
                 </span>
-                <span>Green World Financial</span>
+                <span class="brand-copy"><strong>Green World</strong><small>Financial</small></span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">Our purpose</a></li>
                 <li><a href="#solutions">Solutions</a></li>
-                <li><a href="#approach">Our approach</a></li>
+                <li><a href="#process">How it works</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a class="button" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span></button>
         </nav>
     </header>
 
-    <main id="top">
-        <section class="hero">
-            <div class="container hero-grid">
-                <div class="hero-copy">
+    <main id="main">
+        <section class="hero" id="top">
+            <div class="hero-media"><img src="assets/family-guardian-hero.jpg" alt="A family together in a sunlit forest, surrounded by a protective leaf-shaped tree"></div>
+            <div class="hero-shade"></div>
+            <div class="container">
+                <div class="hero-content">
                     <span class="eyebrow">Life insurance &amp; legacy planning</span>
-                    <h1>Protect today.<br>Build <em>tomorrow.</em></h1>
-                    <p>Clear, personal guidance for protecting the people you love and creating a financial legacy that can move forward with them.</p>
+                    <h1>Protected roots.<br><em>Brighter tomorrows.</em></h1>
+                    <p class="hero-copy">Thoughtful protection for the people at the center of your world—and guidance for the legacy you hope to leave behind.</p>
                     <div class="hero-actions">
                         <a class="button" href="#contact">Explore your options <span aria-hidden="true">↗</span></a>
-                        <a class="button button--ghost" href="#solutions">See how we can help</a>
+                        <a class="button button--outline" href="#about">Discover our approach</a>
                     </div>
                 </div>
+            </div>
+            <div class="hero-seal" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M32 39V14m0 10C23 14 13 19 12 29c9 2 15 0 20-5Zm0 0c9-10 19-5 20 5-9 2-15 0-20-5Z"/>
+                    <path d="M15 45c9-7 25-7 34 0M20 50c7 5 17 5 24 0"/>
+                </svg>
+                <span>Protect · Grow · Pass on</span>
+            </div>
+        </section>
 
-                <div class="hero-visual" aria-label="A visual representing protection across generations">
-                    <div class="legacy-orbit" aria-hidden="true"></div>
-                    <div class="legacy-card">
-                        <div class="legacy-card__label">
-                            <span>Your legacy plan</span>
-                            <span class="legacy-card__seal" aria-hidden="true"></span>
-                        </div>
-                        <h2>Built around what matters.</h2>
-                        <p>A thoughtful plan begins with your people, priorities, and hopes for the future.</p>
-                        <div class="legacy-lines">
-                            <div class="legacy-line"><span>01</span><span>Protect your family</span></div>
-                            <div class="legacy-line"><span>02</span><span>Prepare for change</span></div>
-                            <div class="legacy-line"><span>03</span><span>Pass something forward</span></div>
-                        </div>
+        <section class="principles" aria-label="Our guiding principles">
+            <div class="container principles-grid">
+                <div class="principle"><span class="principle-number">01</span><div><strong>Family first</strong><p>Every conversation begins with the people and priorities that matter to you.</p></div></div>
+                <div class="principle"><span class="principle-number">02</span><div><strong>Guidance in plain language</strong><p>Understand your options without the noise, pressure, or unnecessary complexity.</p></div></div>
+                <div class="principle"><span class="principle-number">03</span><div><strong>A plan with roots</strong><p>Build protection that can stay relevant through life’s changing seasons.</p></div></div>
+            </div>
+        </section>
+
+        <section class="mission" id="about">
+            <div class="container mission-grid">
+                <div class="reveal">
+                    <span class="eyebrow">Our purpose</span>
+                    <h2>Protect the people who make your world whole.</h2>
+                </div>
+                <div class="mission-copy reveal">
+                    <p>Financial protection is about more than a policy. It is about keeping a promise: that the people you love will have support when life takes an unexpected turn. We help you explore that promise with clarity, care, and a long view.</p>
+                    <div class="mission-quote">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M24 37V12m0 10C16 13 8 17 7 26c7 2 13 1 17-4Zm0 0c8-9 16-5 17 4-7 2-13 1-17-4Z"/><path d="M10 38c7-6 21-6 28 0"/></svg>
+                        <p>Growth is not only about the future. It begins with what you choose to protect today.</p>
                     </div>
-                    <div class="hero-note">Clarity today creates confidence for tomorrow.</div>
                 </div>
             </div>
         </section>
 
-        <section class="intro" aria-label="Our principles">
-            <div class="container intro-grid">
-                <p class="intro-lead">Financial protection should feel personal—not overwhelming.</p>
-                <div class="intro-item"><strong>People first</strong><span>Guidance grounded in your family’s needs.</span></div>
-                <div class="intro-item"><strong>Plain language</strong><span>Options explained clearly and thoughtfully.</span></div>
-                <div class="intro-item"><strong>Long view</strong><span>Planning for today and the years ahead.</span></div>
-            </div>
-        </section>
-
-        <section class="services" id="solutions">
+        <section class="solutions" id="solutions">
             <div class="container">
-                <div class="section-heading">
-                    <div><span class="eyebrow">Ways we can help</span><h2>One family. Many seasons of life.</h2></div>
-                    <p>Explore protection strategies that can respond to changing responsibilities, goals, and generations.</p>
+                <div class="section-heading reveal">
+                    <div><span class="eyebrow">Protection with purpose</span><h2>Built for real life—and the people living it.</h2></div>
+                    <p>Explore strategies designed around your responsibilities today, with room for the goals and generations still ahead.</p>
                 </div>
-                <div class="services-grid">
-                    <article class="service-card">
-                        <span class="service-number">01</span><h3>Family protection</h3>
-                        <p>Life insurance options designed to help the people who depend on you stay financially secure.</p>
+                <div class="solution-grid">
+                    <article class="solution-card reveal">
+                        <span class="solution-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 28S5 21 5 12a6 6 0 0 1 11-3 6 6 0 0 1 11 3c0 9-11 16-11 16Z"/></svg></span>
+                        <h3>Family protection</h3>
+                        <p>Life insurance options that can help your family continue meeting everyday needs and long-term responsibilities.</p>
                     </article>
-                    <article class="service-card">
-                        <span class="service-number">02</span><h3>Living benefits</h3>
-                        <p>Explore coverage features that may provide support while you are living, depending on eligibility and policy terms.</p>
+                    <article class="solution-card reveal">
+                        <span class="solution-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 28V7m0 8c-5-6-10-3-11 2 5 2 8 1 11-2Zm0 0c5-6 10-3 11 2-5 2-8 1-11-2Z"/><path d="M7 28h18"/></svg></span>
+                        <h3>Living benefits</h3>
+                        <p>Learn about coverage features that may provide support while you are living, subject to eligibility and policy terms.</p>
                     </article>
-                    <article class="service-card">
-                        <span class="service-number">03</span><h3>Legacy planning</h3>
-                        <p>Coordinate protection with the values, responsibilities, and opportunities you hope to pass forward.</p>
+                    <article class="solution-card reveal">
+                        <span class="solution-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="16" cy="16" r="11"/><path d="M10 19c4-5 8-7 13-8M10 22c5 1 9 0 13-3"/></svg></span>
+                        <h3>Legacy planning</h3>
+                        <p>Connect protection with the values, opportunities, and financial foundation you hope to pass forward.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="guidance" id="approach">
-            <div class="container guidance-grid">
-                <div class="guidance-visual" aria-hidden="true">
-                    <p class="guidance-quote">A good plan should make the future feel <span>more human.</span></p>
-                    <div class="guidance-path">
-                        <span class="guidance-step">Listen</span><span class="guidance-step">Plan</span><span class="guidance-step">Review</span>
-                    </div>
-                </div>
-                <div class="guidance-copy">
-                    <span class="eyebrow">A calmer way to plan</span>
+        <section class="journey" id="process">
+            <div class="container">
+                <div class="journey-intro reveal">
+                    <span class="eyebrow">A calmer path forward</span>
                     <h2>Start with your life, not a product.</h2>
-                    <p>We begin with a conversation about who and what you want to protect. From there, we can help you make sense of the options and choose a direction that feels right for your situation.</p>
-                    <ul class="benefit-list">
-                        <li><span class="check">✓</span><div><strong>Understand your priorities</strong><p>Identify the people, obligations, and goals that shape your plan.</p></div></li>
-                        <li><span class="check">✓</span><div><strong>Compare suitable paths</strong><p>Review potential approaches in language that is easy to follow.</p></div></li>
-                        <li><span class="check">✓</span><div><strong>Keep the plan relevant</strong><p>Revisit your protection as life and responsibilities change.</p></div></li>
-                    </ul>
-                    <a class="button" href="#contact">Talk through your goals <span aria-hidden="true">↗</span></a>
+                    <p>A useful plan begins with listening. From there, each step should make your choices feel clearer—not more complicated.</p>
+                </div>
+                <div class="journey-track">
+                    <article class="journey-step reveal"><span class="journey-dot"></span><span>Step one</span><h3>Share what matters</h3><p>Talk through the people, obligations, and goals you want your plan to support.</p></article>
+                    <article class="journey-step reveal"><span class="journey-dot"></span><span>Step two</span><h3>Compare clear options</h3><p>Explore potential approaches in straightforward language, with space for your questions.</p></article>
+                    <article class="journey-step reveal"><span class="journey-dot"></span><span>Step three</span><h3>Keep it growing</h3><p>Review your direction as your family, responsibilities, and vision for the future evolve.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="legacy">
+            <div class="container legacy-grid">
+                <div class="legacy-copy reveal">
+                    <span class="eyebrow">The long view</span>
+                    <h2>A legacy is built in layers.</h2>
+                    <p>Protection supports today. Planning creates options for tomorrow. Together, they can help give the next generation a stronger place to begin.</p>
+                    <a class="button" href="#contact">Begin your plan <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="legacy-visual reveal" aria-hidden="true">
+                    <div class="orbit"></div>
+                    <span class="orbit-label orbit-label--one">Protect today</span>
+                    <span class="orbit-label orbit-label--two">Prepare for change</span>
+                    <span class="orbit-label orbit-label--three">Pass it forward</span>
+                    <div class="legacy-emblem">
+                        <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="48" cy="48" r="42"/><path d="M48 57V24m0 13C37 24 25 30 24 42c10 3 19 1 24-5Zm0 0c11-13 23-7 24 5-10 3-19 1-24-5Z"/><path d="M27 66c12-9 30-9 42 0M33 73c10 7 20 7 30 0"/></svg>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="contact" id="contact">
-            <div class="container">
-                <div class="contact-shell">
-                    <div class="contact-copy">
-                        <span class="eyebrow">Let’s begin</span>
-                        <h2>Your next chapter starts with a conversation.</h2>
-                        <p>Tell us a little about what you want to protect. We’ll use it to prepare for a more useful first conversation.</p>
-                    </div>
-                    <form class="contact-form" id="consultation-form">
-                        <div class="form-group"><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
-                        <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
-                        <div class="form-group"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 000-0000"></div>
-                        <div class="form-group">
-                            <label for="interest">I’m interested in</label>
-                            <select id="interest" name="interest">
-                                <option>Family protection</option><option>Life insurance options</option>
-                                <option>Living benefits</option><option>Legacy planning</option><option>I’m not sure yet</option>
-                            </select>
-                        </div>
-                        <div class="form-group form-group--wide">
-                            <label for="message">What would you like to protect?</label>
-                            <textarea id="message" name="message" placeholder="Share anything that would help us understand your goals."></textarea>
-                        </div>
-                        <div class="form-footer">
-                            <p>By submitting, you agree to be contacted about your inquiry. No purchase is required.</p>
-                            <button class="button" type="submit">Request a consultation <span aria-hidden="true">↗</span></button>
-                        </div>
-                        <p class="form-status" id="form-status" role="status">Thank you. Your request is ready to be connected to the team’s preferred form service.</p>
-                    </form>
+            <div class="container contact-shell reveal">
+                <div class="contact-intro">
+                    <span class="eyebrow">Let’s talk</span>
+                    <h2>Your family’s story is the place to begin.</h2>
+                    <p>Tell us what you want to protect. We’ll use it to prepare for a more thoughtful first conversation.</p>
                 </div>
+                <form class="contact-form" id="consultation-form">
+                    <div class="form-group"><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
+                    <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+                    <div class="form-group"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 000-0000"></div>
+                    <div class="form-group"><label for="interest">I’m interested in</label><select id="interest" name="interest"><option>Family protection</option><option>Life insurance options</option><option>Living benefits</option><option>Legacy planning</option><option>I’m not sure yet</option></select></div>
+                    <div class="form-group form-wide"><label for="message">What would you like to protect?</label><textarea id="message" name="message" placeholder="Share anything that would help us understand your goals."></textarea></div>
+                    <div class="form-footer"><p>By submitting, you agree to be contacted about your inquiry. No purchase is required.</p><button class="button" type="submit">Request a consultation <span aria-hidden="true">↗</span></button></div>
+                    <p class="form-status" id="form-status" role="status">Thank you. Your request is ready to be connected to the team’s preferred form service.</p>
+                </form>
             </div>
         </section>
     </main>
@@ -512,34 +502,48 @@
         <div class="container">
             <div class="footer-main">
                 <div class="footer-about">
-                    <a class="brand" href="#top">
-                        <span class="brand-mark" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                                <path d="M19.5 4.5C12 4.8 7.1 8.5 6.2 14.8c4.8.4 9.9-2.6 13.3-10.3Z"/>
-                                <path d="M5 20c1.2-5.4 4.8-8.6 10.4-10.8"/>
-                            </svg>
-                        </span>
-                        <span>Green World Financial</span>
-                    </a>
-                    <p>Protecting the people you love today, while helping you think intentionally about tomorrow.</p>
+                    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="24" cy="24" r="21"/><path d="M24 27V12m0 6c-5-6-10-5-13-4 2 7 7 10 13 9m0-5c5-6 10-5 13-4-2 7-7 10-13 9"/><path d="M11 31c6-5 20-5 26 0M14 35c5 4 15 6 20 0"/></svg></span><span class="brand-copy"><strong>Green World</strong><small>Financial</small></span></a>
+                    <p>Protection rooted in family. Planning designed for the future.</p>
                 </div>
-                <div class="footer-column">
-                    <h3>Explore</h3><ul><li><a href="#solutions">Solutions</a></li><li><a href="#approach">Our approach</a></li><li><a href="#contact">Start a conversation</a></li></ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Planning</h3><ul><li><a href="#solutions">Family protection</a></li><li><a href="#solutions">Living benefits</a></li><li><a href="#solutions">Legacy planning</a></li></ul>
-                </div>
+                <div class="footer-column"><h3>Explore</h3><ul><li><a href="#about">Our purpose</a></li><li><a href="#solutions">Solutions</a></li><li><a href="#process">How it works</a></li><li><a href="#contact">Contact</a></li></ul></div>
+                <div class="footer-column"><h3>Planning</h3><ul><li><a href="#solutions">Family protection</a></li><li><a href="#solutions">Living benefits</a></li><li><a href="#solutions">Legacy planning</a></li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <span>© <span id="year"></span> Green World Financial. All rights reserved.</span>
-                <span>Insurance availability and features vary by policy and eligibility.</span>
-            </div>
+            <div class="footer-bottom"><span>© <span id="year"></span> Green World Financial. All rights reserved.</span><span>Insurance availability and features vary by policy and eligibility.</span></div>
         </div>
     </footer>
 
     <script>
+        const header = document.getElementById('site-header');
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const setHeader = () => header.classList.toggle('scrolled', window.scrollY > 24);
+        setHeader();
+        window.addEventListener('scroll', setHeader, { passive: true });
+
+        menuToggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(open));
+            menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+            document.body.classList.toggle('menu-open', open);
+        });
+        navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
+        }));
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
         document.getElementById('year').textContent = new Date().getFullYear();
-        document.getElementById('consultation-form').addEventListener('submit', function (event) {
+        document.getElementById('consultation-form').addEventListener('submit', event => {
             event.preventDefault();
             document.getElementById('form-status').style.display = 'block';
         });
