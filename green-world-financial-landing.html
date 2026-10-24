@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green World Financial - Family Protection & Life Insurance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #1a1a1a;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: gold;
+            padding: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: gold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .hero .highlight {
+            color: gold;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            background: gold;
+            color: #1a1a1a;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: gold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+        }
+        
+        .benefits-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .benefits-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            font-weight: 300;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .benefit-check {
+            width: 25px;
+            height: 25px;
+            background: gold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+        
+        .benefits-image {
+            background: #f0f0f0;
+            padding: 60px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            background: gold;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .quote-section h2 {
+            color: #1a1a1a;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .quote-section p {
+            color: #1a1a1a;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: gold;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: gold;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            color: #666;
+        }
+        
+        /* Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto 0;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: gold;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .benefits-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxkZWZzPgogICAgIDxyZ2lkIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmMGYwMDAiLz4KICAgIDxyZ2lkIHg9IjUwJSIgeT0iNTAlIiB3aWR0aD0iODAlIiBoZWlnaHQ9IjgwJSIgZmlsbD0iZ29sZCIgcm9uZ2Vwb2xpdHk9IjUwMCIvPgogIDwvZGVmcz4KICAgIDxyZ2NpXD5nZXJvb207PC9zdmc+DQo=" alt="Green Leaf Logo">
+                    Green World Financial
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>We Protect Families <span class="highlight">Today</span><br>Building Legacies <span class="highlight">Tomorrow</span></h1>
+            <p>Secure your family's future with comprehensive life insurance solutions designed to protect what matters most. From today’s needs to tomorrow's dreams.</p>
+            <button class="cta-button">Get Your Free Quote</button>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Life Insurance Solutions</h2>
+                <p>Comprehensive coverage options tailored to your family's unique needs and future goals.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Family Protection</h3>
+                    <p>Term life insurance designed to protect your family's financial future and ensure they'll be taken care of when you're gone.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Wealth Building</h3>
+                    <p>Whole life insurance that combines protection with cash value accumulation, creating a foundation for generational wealth.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🏛️</div>
+                    <h3>Legacy Planning</h3>
+                    <p>Comprehensive solutions that ensure your family's financial security and build lasting legacies for future generations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="benefits-content">
+                <div class="benefits-text">
+                    <h2>The Green World Financial Advantage</h2>
+                    <div class="benefit-item">
+                        <div class="benefit-check">✓</div>
+                        <span>Comprehensive coverage for all family stages</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-check">✓</div>
+                        <span>Competitive rates with guaranteed protection</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-check">✓</div>
+                        <span>Personalized solutions based on your needs</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-check">✓</div>
+                        <span>24/7 customer support for your family</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-check">✓</div>
+                        <span>Trusted by thousands of families nationwide</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-check">✓</div>
+                        <span>Flexible payment options for every budget</span>
+                    </div>
+                </div>
+                <div class="benefits-image">
+                    <img src="C:/Users/kbiz3/OneDrive/Pictures/Screenshots/Untitled.jpg" alt="Family Protection Advertisement" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="quote-section">
+        <div class="container">
+            <h2>We are protecting families today, selling and tomorrow building</h2>
+            <p>because growth is not just for the future. We protect families with solutions for today and lasting legacies for future generations.</p>
+            <button class="cta-button">Start Your Protection Plan</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Started Today</h2>
+                <p>Contact us for a personalized consultation about your family's protection needs.</p>
+            </div>
+            
+            <form class="contact-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="policy-type">Policy Type Interested In</label>
+                    <select id="policy-type" name="policy-type">
+                        <option value="term">Term Life Insurance</option>
+                        <option value="whole">Whole Life Insurance</option>
+                        <option value="universal">Universal Life Insurance</option>
+                        <option value="legacy">Legacy Planning</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your family's protection needs..."></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button" style="width: 100%;">Request Free Consultation</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Green World Financial</h3>
+                    <p>Protecting families today, building legacies for tomorrow. Your family's financial security is our mission.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Life Insurance</a></li>
+                        <li><a href="#services">Family Protection</a></li>
+                        <li><a href="#services">Wealth Building</a></li>
+                        <li><a href="#services">Legacy Planning</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Careers</a></li>
+                        <li><a href="#contact">News</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>123 Financial Plaza</li>
+                        <li>New York, NY 10001</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: info@gwf.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Green World Financial. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
