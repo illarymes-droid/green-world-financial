@@ -3,543 +3,546 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green World Financial - Family Protection & Life Insurance</title>
+    <meta name="description" content="Green World Financial helps families explore life insurance and legacy planning with clear, personal guidance.">
+    <title>Green World Financial | Protect Today. Build Tomorrow.</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --forest-950: #08251e;
+            --forest-900: #0c3027;
+            --forest-800: #17483b;
+            --forest-600: #2f6f5d;
+            --ivory: #f7f4ed;
+            --paper: #fffdf8;
+            --ink: #15211d;
+            --muted: #64716c;
+            --gold: #c7a163;
+            --gold-soft: #eadfc9;
+            --line: rgba(21, 33, 29, 0.12);
+            --shadow: 0 28px 70px rgba(8, 37, 30, 0.11);
+            --radius-lg: 28px;
+            --radius-md: 18px;
         }
-        
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
+            overflow-x: hidden;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        a { color: inherit; }
+        button, input, select, textarea { font: inherit; }
+        .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px;
+            color: var(--forest-600); font-size: 0.76rem; font-weight: 750;
+            letter-spacing: 0.16em; text-transform: uppercase;
         }
-        
-        /* Navigation */
-        nav {
-            background: #1a1a1a;
-            color: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .eyebrow::before { width: 28px; height: 1px; content: ""; background: currentColor; }
+        h1, h2, h3 {
+            font-family: Georgia, "Times New Roman", serif; font-weight: 500;
+            line-height: 1.08; letter-spacing: -0.035em;
         }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        h2 { font-size: clamp(2.15rem, 4.4vw, 4rem); }
+        .button {
+            display: inline-flex; min-height: 52px; align-items: center; justify-content: center;
+            gap: 10px; padding: 0 22px; border: 1px solid transparent; border-radius: 999px;
+            background: var(--gold); color: var(--forest-950); cursor: pointer; font-size: 0.9rem;
+            font-weight: 750; letter-spacing: 0.01em; text-decoration: none;
+            transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
         }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
-            font-weight: bold;
+        .button:hover { transform: translateY(-2px); background: #d4b277; box-shadow: 0 14px 28px rgba(199, 161, 99, 0.22); }
+        .button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+            outline: 3px solid rgba(199, 161, 99, 0.48); outline-offset: 3px;
         }
-        
-        .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: gold;
-            padding: 5px;
+        .button--ghost { border-color: rgba(255, 255, 255, 0.22); background: transparent; color: white; }
+        .button--ghost:hover { background: rgba(255, 255, 255, 0.08); box-shadow: none; }
+
+        .site-header {
+            position: absolute; z-index: 10; top: 0; right: 0; left: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12); color: white;
         }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
+        .nav { display: flex; min-height: 82px; align-items: center; justify-content: space-between; gap: 28px; }
+        .brand {
+            display: inline-flex; align-items: center; gap: 12px; color: white;
+            font-family: Georgia, "Times New Roman", serif; font-size: 1.18rem;
+            letter-spacing: -0.02em; text-decoration: none;
         }
-        
+        .brand-mark {
+            display: grid; width: 38px; height: 38px; place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 50%; color: var(--gold);
+        }
+        .brand-mark svg { width: 22px; height: 22px; }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
         .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
+            color: rgba(255, 255, 255, 0.78); font-size: 0.88rem;
+            font-weight: 650; text-decoration: none; transition: color 180ms ease;
         }
-        
-        .nav-links a:hover {
-            color: gold;
-        }
-        
-        /* Hero Section */
+        .nav-links a:hover { color: white; }
+        .nav .button { min-height: 44px; padding-inline: 18px; }
+
         .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative; overflow: hidden; min-height: 760px; padding: 172px 0 106px;
+            background: radial-gradient(circle at 85% 18%, rgba(199, 161, 99, 0.16), transparent 26%),
+                        linear-gradient(135deg, var(--forest-950), var(--forest-800));
             color: white;
-            padding: 80px 0;
-            text-align: center;
         }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 300;
+        .hero::before {
+            position: absolute; inset: 0; content: ""; opacity: 0.22;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+            background-size: 64px 64px; mask-image: linear-gradient(to right, transparent 4%, black 58%, transparent);
         }
-        
-        .hero .highlight {
-            color: gold;
-            font-weight: bold;
+        .hero-grid {
+            position: relative; z-index: 1; display: grid; align-items: center;
+            grid-template-columns: minmax(0, 1.12fr) minmax(380px, 0.88fr); gap: 78px;
         }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
+        .hero .eyebrow { color: var(--gold-soft); }
+        .hero h1 { max-width: 760px; margin-bottom: 26px; font-size: clamp(3.5rem, 7vw, 6.8rem); }
+        .hero h1 em { color: var(--gold); font-weight: inherit; }
+        .hero-copy > p {
+            max-width: 610px; margin-bottom: 34px; color: rgba(255, 255, 255, 0.73);
+            font-size: clamp(1rem, 1.6vw, 1.18rem);
         }
-        
-        .cta-button {
-            background: gold;
-            color: #1a1a1a;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+        .hero-visual { position: relative; display: grid; min-height: 470px; place-items: center; }
+        .legacy-orbit {
+            position: absolute; width: min(43vw, 455px); aspect-ratio: 1;
+            border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 50%;
         }
-        
-        .cta-button:hover {
-            background: #ffd700;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        .legacy-orbit::before, .legacy-orbit::after {
+            position: absolute; border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: inherit; content: "";
         }
-        
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: #f9f9f9;
+        .legacy-orbit::before { inset: 12%; }
+        .legacy-orbit::after { inset: 27%; border-color: rgba(199, 161, 99, 0.48); }
+        .legacy-card {
+            position: relative; z-index: 2; width: min(100%, 330px); padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.16); border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.09); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(14px);
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
+        .legacy-card__label {
+            display: flex; align-items: center; justify-content: space-between; margin-bottom: 34px;
+            color: rgba(255, 255, 255, 0.6); font-size: 0.72rem; font-weight: 750;
+            letter-spacing: 0.12em; text-transform: uppercase;
         }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            font-weight: 300;
+        .legacy-card__seal {
+            width: 12px; height: 12px; border-radius: 50%; background: var(--gold);
+            box-shadow: 0 0 0 6px rgba(199, 161, 99, 0.16);
         }
-        
-        .section-title p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+        .legacy-card h2 { margin-bottom: 12px; font-size: 2.3rem; }
+        .legacy-card > p { color: rgba(255, 255, 255, 0.66); font-size: 0.92rem; }
+        .legacy-lines { display: grid; margin-top: 30px; gap: 12px; }
+        .legacy-line {
+            display: flex; align-items: center; gap: 12px; padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.82); font-size: 0.82rem;
         }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+        .legacy-line span:first-child { color: var(--gold); }
+        .hero-note {
+            position: absolute; z-index: 3; right: -18px; bottom: 34px; max-width: 185px;
+            padding: 16px 18px; border-radius: 14px; background: var(--ivory); color: var(--ink);
+            box-shadow: var(--shadow); font-family: Georgia, "Times New Roman", serif;
+            font-size: 0.95rem; line-height: 1.35;
         }
-        
+
+        .intro { padding: 34px 0; border-bottom: 1px solid var(--line); background: var(--ivory); }
+        .intro-grid { display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 24px; }
+        .intro-lead {
+            color: var(--forest-800); font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.2rem; line-height: 1.35;
+        }
+        .intro-item { padding-left: 24px; border-left: 1px solid var(--line); }
+        .intro-item strong { display: block; margin-bottom: 3px; color: var(--forest-900); font-size: 0.9rem; }
+        .intro-item span { color: var(--muted); font-size: 0.83rem; }
+
+        .services { padding: 120px 0; background: var(--paper); }
+        .section-heading {
+            display: grid; align-items: end; margin-bottom: 58px;
+            grid-template-columns: 1.05fr 0.7fr; gap: 40px;
+        }
+        .section-heading p { max-width: 500px; justify-self: end; color: var(--muted); font-size: 1rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
         .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            position: relative; overflow: hidden; min-height: 340px; padding: 34px;
+            border: 1px solid var(--line); border-radius: var(--radius-md); background: white;
+            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
         }
-        
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            transform: translateY(-6px); border-color: rgba(47, 111, 93, 0.28); box-shadow: var(--shadow);
         }
-        
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: gold;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 24px;
+        .service-number {
+            display: inline-grid; width: 50px; height: 50px; margin-bottom: 68px; place-items: center;
+            border-radius: 50%; background: var(--ivory); color: var(--forest-600);
+            font-family: Georgia, "Times New Roman", serif;
         }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #1a1a1a;
+        .service-card h3 { margin-bottom: 14px; font-size: 1.72rem; }
+        .service-card p { color: var(--muted); font-size: 0.92rem; }
+        .service-card::after {
+            position: absolute; right: -36px; bottom: -52px; width: 150px; height: 150px;
+            border: 1px solid var(--gold-soft); border-radius: 50%; content: "";
+            box-shadow: inset 0 0 0 24px white, inset 0 0 0 25px var(--gold-soft);
         }
-        
-        /* Benefits Section */
-        .benefits {
-            padding: 80px 0;
+
+        .guidance { padding: 120px 0; background: var(--ivory); }
+        .guidance-grid {
+            display: grid; align-items: center; grid-template-columns: 0.9fr 1.1fr; gap: 82px;
         }
-        
-        .benefits-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+        .guidance-visual {
+            position: relative; min-height: 540px; padding: 50px;
+            border-radius: var(--radius-lg); background: var(--forest-900); color: white;
         }
-        
-        .benefits-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #1a1a1a;
-            font-weight: 300;
+        .guidance-visual::before {
+            position: absolute; inset: 26px; border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px; content: "";
         }
-        
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
+        .guidance-quote {
+            position: relative; z-index: 1; max-width: 350px; font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2rem, 3.4vw, 3.2rem); line-height: 1.12;
         }
-        
-        .benefit-check {
-            width: 25px;
-            height: 25px;
-            background: gold;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1a1a1a;
-            font-weight: bold;
+        .guidance-quote span { color: var(--gold); }
+        .guidance-path {
+            position: absolute; z-index: 1; right: 50px; bottom: 50px; left: 50px;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
         }
-        
-        .benefits-image {
-            background: #f0f0f0;
-            padding: 60px;
-            border-radius: 10px;
-            text-align: center;
+        .guidance-step {
+            padding-top: 14px; border-top: 2px solid rgba(255, 255, 255, 0.16);
+            color: rgba(255, 255, 255, 0.62); font-size: 0.72rem;
+            letter-spacing: 0.06em; text-transform: uppercase;
         }
-        
-        /* Quote Section */
-        .quote-section {
-            background: gold;
-            padding: 80px 0;
-            text-align: center;
+        .guidance-step:first-child { border-color: var(--gold); color: white; }
+        .guidance-copy h2 { max-width: 620px; margin-bottom: 24px; }
+        .guidance-copy > p { max-width: 580px; margin-bottom: 36px; color: var(--muted); }
+        .benefit-list { display: grid; margin-bottom: 38px; gap: 0; list-style: none; }
+        .benefit-list li {
+            display: grid; padding: 17px 0; border-top: 1px solid var(--line);
+            grid-template-columns: 36px 1fr; gap: 12px;
         }
-        
-        .quote-section h2 {
-            color: #1a1a1a;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 300;
+        .benefit-list li:last-child { border-bottom: 1px solid var(--line); }
+        .benefit-list strong { display: block; margin-bottom: 2px; color: var(--forest-900); font-size: 0.92rem; }
+        .benefit-list p { color: var(--muted); font-size: 0.84rem; }
+        .check {
+            display: grid; width: 25px; height: 25px; margin-top: 1px; place-items: center;
+            border-radius: 50%; background: var(--gold-soft); color: var(--forest-900);
+            font-size: 0.78rem; font-weight: 800;
         }
-        
-        .quote-section p {
-            color: #1a1a1a;
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
+
+        .contact { padding: 120px 0; background: var(--paper); }
+        .contact-shell {
+            display: grid; overflow: hidden; border-radius: var(--radius-lg); background: var(--forest-950);
+            color: white; box-shadow: var(--shadow); grid-template-columns: 0.85fr 1.15fr;
         }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 60px 0 20px;
+        .contact-copy {
+            position: relative; overflow: hidden; padding: 64px 58px; background: var(--forest-800);
         }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+        .contact-copy::after {
+            position: absolute; right: -140px; bottom: -180px; width: 390px; height: 390px;
+            border: 1px solid rgba(255, 255, 255, 0.13); border-radius: 50%; content: "";
+            box-shadow: inset 0 0 0 60px transparent, inset 0 0 0 61px rgba(255, 255, 255, 0.08);
         }
-        
-        .footer-section h3 {
-            color: gold;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
+        .contact-copy .eyebrow { color: var(--gold-soft); }
+        .contact-copy h2 { margin-bottom: 24px; font-size: clamp(2.45rem, 4vw, 4.2rem); }
+        .contact-copy > p {
+            position: relative; z-index: 1; max-width: 420px; color: rgba(255, 255, 255, 0.68);
         }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: gold;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            text-align: center;
-            color: #666;
-        }
-        
-        /* Form Styles */
         .contact-form {
-            max-width: 600px;
-            margin: 40px auto 0;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: grid; padding: 58px; gap: 22px; grid-template-columns: repeat(2, 1fr);
         }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
+        .form-group { display: grid; gap: 7px; }
+        .form-group--wide, .form-footer, .form-status { grid-column: 1 / -1; }
         .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #1a1a1a;
+            color: rgba(255, 255, 255, 0.7); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.06em; text-transform: uppercase;
         }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 10px;
+            outline: none; background: rgba(255, 255, 255, 0.07); color: white;
         }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: gold;
+        .form-group input, .form-group select { height: 52px; padding: 0 15px; }
+        .form-group textarea { min-height: 112px; padding: 14px 15px; resize: vertical; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255, 255, 255, 0.38); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--gold); background: rgba(255, 255, 255, 0.1);
         }
-        
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
+        .form-group select option { color: var(--ink); }
+        .form-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+        .form-footer p {
+            max-width: 290px; color: rgba(255, 255, 255, 0.43); font-size: 0.74rem; line-height: 1.45;
         }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        .form-status {
+            display: none; padding: 12px 14px; border: 1px solid rgba(199, 161, 99, 0.3);
+            border-radius: 10px; background: rgba(199, 161, 99, 0.12); color: var(--gold-soft);
+            font-size: 0.86rem;
+        }
+
+        footer { padding: 52px 0 28px; border-top: 1px solid var(--line); background: var(--ivory); }
+        .footer-main {
+            display: grid; align-items: start; padding-bottom: 40px;
+            grid-template-columns: 1.3fr 0.7fr 0.7fr; gap: 56px;
+        }
+        footer .brand { margin-bottom: 16px; color: var(--forest-950); }
+        footer .brand-mark { border-color: rgba(8, 37, 30, 0.25); color: var(--forest-600); }
+        .footer-about p { max-width: 370px; color: var(--muted); font-size: 0.86rem; }
+        .footer-column h3 {
+            margin-bottom: 16px; font-family: inherit; font-size: 0.76rem; font-weight: 800;
+            letter-spacing: 0.1em; text-transform: uppercase;
+        }
+        .footer-column ul { display: grid; gap: 10px; list-style: none; }
+        .footer-column a { color: var(--muted); font-size: 0.86rem; text-decoration: none; }
+        .footer-column a:hover { color: var(--forest-600); }
+        .footer-bottom {
+            display: flex; align-items: center; justify-content: space-between; gap: 20px;
+            padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.75rem;
+        }
+
+        @media (max-width: 980px) {
+            .nav-links { display: none; }
+            .hero { min-height: auto; }
+            .hero-grid, .guidance-grid { grid-template-columns: 1fr; }
+            .hero-grid { gap: 48px; }
+            .hero-copy { text-align: center; }
+            .hero-copy > p { margin-inline: auto; }
+            .hero-actions { justify-content: center; }
+            .hero-visual { min-height: 430px; }
+            .legacy-orbit { width: 430px; }
+            .hero-note { right: calc(50% - 240px); }
+            .intro-grid { grid-template-columns: repeat(3, 1fr); }
+            .intro-lead { grid-column: 1 / -1; }
+            .intro-item:first-of-type { padding-left: 0; border-left: 0; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card { min-height: 280px; }
+            .service-number { margin-bottom: 46px; }
+            .guidance-grid { gap: 56px; }
+            .contact-shell { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 680px) {
+            .container { width: min(100% - 28px, 1180px); }
+            .site-header .button { display: none; }
+            .nav { min-height: 72px; }
+            .brand { font-size: 1.05rem; }
+            .hero { padding: 132px 0 76px; }
+            .hero .eyebrow {
+                max-width: 100%;
+                justify-content: center;
+                font-size: 0.66rem;
+                letter-spacing: 0.12em;
+                line-height: 1.5;
             }
-            
-            .benefits-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-            }
+            .hero h1 { font-size: clamp(2.8rem, 12.2vw, 3.3rem); }
+            .hero-actions { align-items: stretch; flex-direction: column; }
+            .hero-actions .button { width: 100%; }
+            .hero-visual { min-height: 390px; }
+            .legacy-orbit { width: 350px; }
+            .legacy-card { width: min(88%, 310px); padding: 25px; }
+            .hero-note { right: 0; bottom: 12px; max-width: 164px; }
+            .intro-grid { grid-template-columns: 1fr; }
+            .intro-item { padding: 16px 0 0; border-top: 1px solid var(--line); border-left: 0; }
+            .services, .guidance, .contact { padding: 84px 0; }
+            .section-heading { margin-bottom: 40px; grid-template-columns: 1fr; gap: 20px; }
+            .section-heading p { justify-self: start; }
+            .service-card { min-height: 300px; padding: 28px; }
+            .guidance-visual { min-height: 470px; padding: 34px; }
+            .guidance-visual::before { inset: 16px; }
+            .guidance-path { right: 34px; bottom: 34px; left: 34px; }
+            .guidance-copy h2 { font-size: 2.7rem; }
+            .contact-copy, .contact-form { padding: 36px 26px; }
+            .contact-form { grid-template-columns: 1fr; }
+            .form-group, .form-group--wide, .form-footer, .form-status { grid-column: 1; }
+            .form-footer { align-items: stretch; flex-direction: column; }
+            .form-footer .button { width: 100%; }
+            .footer-main { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+            .footer-about { grid-column: 1 / -1; }
+            .footer-bottom { align-items: flex-start; flex-direction: column; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxkZWZzPgogICAgIDxyZ2lkIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmMGYwMDAiLz4KICAgIDxyZ2lkIHg9IjUwJSIgeT0iNTAlIiB3aWR0aD0iODAlIiBoZWlnaHQ9IjgwJSIgZmlsbD0iZ29sZCIgcm9uZ2Vwb2xpdHk9IjUwMCIvPgogIDwvZGVmcz4KICAgIDxyZ2NpXD5nZXJvb207PC9zdmc+DQo=" alt="Green Leaf Logo">
-                    Green World Financial
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <header class="site-header">
+        <nav class="container nav" aria-label="Main navigation">
+            <a class="brand" href="#top" aria-label="Green World Financial home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M19.5 4.5C12 4.8 7.1 8.5 6.2 14.8c4.8.4 9.9-2.6 13.3-10.3Z"/>
+                        <path d="M5 20c1.2-5.4 4.8-8.6 10.4-10.8"/>
+                    </svg>
+                </span>
+                <span>Green World Financial</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#approach">Our approach</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a class="button" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>We Protect Families <span class="highlight">Today</span><br>Building Legacies <span class="highlight">Tomorrow</span></h1>
-            <p>Secure your family's future with comprehensive life insurance solutions designed to protect what matters most. From today’s needs to tomorrow's dreams.</p>
-            <button class="cta-button">Get Your Free Quote</button>
-        </div>
-    </section>
+    <main id="top">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">Life insurance &amp; legacy planning</span>
+                    <h1>Protect today.<br>Build <em>tomorrow.</em></h1>
+                    <p>Clear, personal guidance for protecting the people you love and creating a financial legacy that can move forward with them.</p>
+                    <div class="hero-actions">
+                        <a class="button" href="#contact">Explore your options <span aria-hidden="true">↗</span></a>
+                        <a class="button button--ghost" href="#solutions">See how we can help</a>
+                    </div>
+                </div>
 
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Life Insurance Solutions</h2>
-                <p>Comprehensive coverage options tailored to your family's unique needs and future goals.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">👥</div>
-                    <h3>Family Protection</h3>
-                    <p>Term life insurance designed to protect your family's financial future and ensure they'll be taken care of when you're gone.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">💰</div>
-                    <h3>Wealth Building</h3>
-                    <p>Whole life insurance that combines protection with cash value accumulation, creating a foundation for generational wealth.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🏛️</div>
-                    <h3>Legacy Planning</h3>
-                    <p>Comprehensive solutions that ensure your family's financial security and build lasting legacies for future generations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <div class="benefits-content">
-                <div class="benefits-text">
-                    <h2>The Green World Financial Advantage</h2>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <span>Comprehensive coverage for all family stages</span>
+                <div class="hero-visual" aria-label="A visual representing protection across generations">
+                    <div class="legacy-orbit" aria-hidden="true"></div>
+                    <div class="legacy-card">
+                        <div class="legacy-card__label">
+                            <span>Your legacy plan</span>
+                            <span class="legacy-card__seal" aria-hidden="true"></span>
+                        </div>
+                        <h2>Built around what matters.</h2>
+                        <p>A thoughtful plan begins with your people, priorities, and hopes for the future.</p>
+                        <div class="legacy-lines">
+                            <div class="legacy-line"><span>01</span><span>Protect your family</span></div>
+                            <div class="legacy-line"><span>02</span><span>Prepare for change</span></div>
+                            <div class="legacy-line"><span>03</span><span>Pass something forward</span></div>
+                        </div>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <span>Competitive rates with guaranteed protection</span>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <span>Personalized solutions based on your needs</span>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <span>24/7 customer support for your family</span>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <span>Trusted by thousands of families nationwide</span>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <span>Flexible payment options for every budget</span>
-                    </div>
-                </div>
-                <div class="benefits-image">
-                    <img src="C:/Users/kbiz3/OneDrive/Pictures/Screenshots/Untitled.jpg" alt="Family Protection Advertisement" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <div class="hero-note">Clarity today creates confidence for tomorrow.</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="quote-section">
-        <div class="container">
-            <h2>We are protecting families today, selling and tomorrow building</h2>
-            <p>because growth is not just for the future. We protect families with solutions for today and lasting legacies for future generations.</p>
-            <button class="cta-button">Start Your Protection Plan</button>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get Started Today</h2>
-                <p>Contact us for a personalized consultation about your family's protection needs.</p>
+        <section class="intro" aria-label="Our principles">
+            <div class="container intro-grid">
+                <p class="intro-lead">Financial protection should feel personal—not overwhelming.</p>
+                <div class="intro-item"><strong>People first</strong><span>Guidance grounded in your family’s needs.</span></div>
+                <div class="intro-item"><strong>Plain language</strong><span>Options explained clearly and thoughtfully.</span></div>
+                <div class="intro-item"><strong>Long view</strong><span>Planning for today and the years ahead.</span></div>
             </div>
-            
-            <form class="contact-form" onsubmit="event.preventDefault();">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
+        </section>
+
+        <section class="services" id="solutions">
+            <div class="container">
+                <div class="section-heading">
+                    <div><span class="eyebrow">Ways we can help</span><h2>One family. Many seasons of life.</h2></div>
+                    <p>Explore protection strategies that can respond to changing responsibilities, goals, and generations.</p>
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <span class="service-number">01</span><h3>Family protection</h3>
+                        <p>Life insurance options designed to help the people who depend on you stay financially secure.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-number">02</span><h3>Living benefits</h3>
+                        <p>Explore coverage features that may provide support while you are living, depending on eligibility and policy terms.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-number">03</span><h3>Legacy planning</h3>
+                        <p>Coordinate protection with the values, responsibilities, and opportunities you hope to pass forward.</p>
+                    </article>
                 </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
+            </div>
+        </section>
+
+        <section class="guidance" id="approach">
+            <div class="container guidance-grid">
+                <div class="guidance-visual" aria-hidden="true">
+                    <p class="guidance-quote">A good plan should make the future feel <span>more human.</span></p>
+                    <div class="guidance-path">
+                        <span class="guidance-step">Listen</span><span class="guidance-step">Plan</span><span class="guidance-step">Review</span>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="policy-type">Policy Type Interested In</label>
-                    <select id="policy-type" name="policy-type">
-                        <option value="term">Term Life Insurance</option>
-                        <option value="whole">Whole Life Insurance</option>
-                        <option value="universal">Universal Life Insurance</option>
-                        <option value="legacy">Legacy Planning</option>
-                    </select>
+                <div class="guidance-copy">
+                    <span class="eyebrow">A calmer way to plan</span>
+                    <h2>Start with your life, not a product.</h2>
+                    <p>We begin with a conversation about who and what you want to protect. From there, we can help you make sense of the options and choose a direction that feels right for your situation.</p>
+                    <ul class="benefit-list">
+                        <li><span class="check">✓</span><div><strong>Understand your priorities</strong><p>Identify the people, obligations, and goals that shape your plan.</p></div></li>
+                        <li><span class="check">✓</span><div><strong>Compare suitable paths</strong><p>Review potential approaches in language that is easy to follow.</p></div></li>
+                        <li><span class="check">✓</span><div><strong>Keep the plan relevant</strong><p>Revisit your protection as life and responsibilities change.</p></div></li>
+                    </ul>
+                    <a class="button" href="#contact">Talk through your goals <span aria-hidden="true">↗</span></a>
                 </div>
-                
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your family's protection needs..."></textarea>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-shell">
+                    <div class="contact-copy">
+                        <span class="eyebrow">Let’s begin</span>
+                        <h2>Your next chapter starts with a conversation.</h2>
+                        <p>Tell us a little about what you want to protect. We’ll use it to prepare for a more useful first conversation.</p>
+                    </div>
+                    <form class="contact-form" id="consultation-form">
+                        <div class="form-group"><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
+                        <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+                        <div class="form-group"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 000-0000"></div>
+                        <div class="form-group">
+                            <label for="interest">I’m interested in</label>
+                            <select id="interest" name="interest">
+                                <option>Family protection</option><option>Life insurance options</option>
+                                <option>Living benefits</option><option>Legacy planning</option><option>I’m not sure yet</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group--wide">
+                            <label for="message">What would you like to protect?</label>
+                            <textarea id="message" name="message" placeholder="Share anything that would help us understand your goals."></textarea>
+                        </div>
+                        <div class="form-footer">
+                            <p>By submitting, you agree to be contacted about your inquiry. No purchase is required.</p>
+                            <button class="button" type="submit">Request a consultation <span aria-hidden="true">↗</span></button>
+                        </div>
+                        <p class="form-status" id="form-status" role="status">Thank you. Your request is ready to be connected to the team’s preferred form service.</p>
+                    </form>
                 </div>
-                
-                <button type="submit" class="cta-button" style="width: 100%;">Request Free Consultation</button>
-            </form>
-        </div>
-    </section>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Green World Financial</h3>
-                    <p>Protecting families today, building legacies for tomorrow. Your family's financial security is our mission.</p>
+            <div class="footer-main">
+                <div class="footer-about">
+                    <a class="brand" href="#top">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <path d="M19.5 4.5C12 4.8 7.1 8.5 6.2 14.8c4.8.4 9.9-2.6 13.3-10.3Z"/>
+                                <path d="M5 20c1.2-5.4 4.8-8.6 10.4-10.8"/>
+                            </svg>
+                        </span>
+                        <span>Green World Financial</span>
+                    </a>
+                    <p>Protecting the people you love today, while helping you think intentionally about tomorrow.</p>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#services">Life Insurance</a></li>
-                        <li><a href="#services">Family Protection</a></li>
-                        <li><a href="#services">Wealth Building</a></li>
-                        <li><a href="#services">Legacy Planning</a></li>
-                    </ul>
+                <div class="footer-column">
+                    <h3>Explore</h3><ul><li><a href="#solutions">Solutions</a></li><li><a href="#approach">Our approach</a></li><li><a href="#contact">Start a conversation</a></li></ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Careers</a></li>
-                        <li><a href="#contact">News</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li>123 Financial Plaza</li>
-                        <li>New York, NY 10001</li>
-                        <li>Phone: (555) 123-4567</li>
-                        <li>Email: info@gwf.com</li>
-                    </ul>
+                <div class="footer-column">
+                    <h3>Planning</h3><ul><li><a href="#solutions">Family protection</a></li><li><a href="#solutions">Living benefits</a></li><li><a href="#solutions">Legacy planning</a></li></ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2024 Green World Financial. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <span>© <span id="year"></span> Green World Financial. All rights reserved.</span>
+                <span>Insurance availability and features vary by policy and eligibility.</span>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('consultation-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.getElementById('form-status').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
